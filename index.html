@@ -246,6 +246,11 @@ footer{background:#f4f4f4;padding:15px;margin-top:30px;}
     <input type="text" name="nome" placeholder="Nome" required>
     <input type="tel" name="celular" placeholder="Celular" required>
     <input type="text" name="pix" placeholder="Chave Pix" required>
+    
+    <!-- CAMPO DE DATA ADICIONADO -->
+    <label for="data">Escolha a data:</label>
+    <input type="date" id="data" name="data" required>
+    
     <select name="horas" required>
       <option value="">Selecione quantidade de horas</option>
       <option value="1">1 hora</option>
@@ -301,6 +306,7 @@ formulario.addEventListener("submit", function(e){
   const nome = formulario.nome.value;
   const celular = formulario.celular.value;
   const pix = formulario.pix.value;
+  const data = formulario.data.value; // PEGANDO DATA
   const horas = parseInt(formulario.horas.value);
   const valor = (39.90 * horas).toFixed(2);
   const cupons = horas;
@@ -316,11 +322,12 @@ formulario.addEventListener("submit", function(e){
   doc.text(`Quantidade de cupons: ${cupons}`,20,60);
   doc.text(`Valor total: R$ ${valor}`,20,70);
   doc.text(`Chave Pix: ${pix}`,20,80);
-  doc.text("Forma de pagamento: Pix / Presencial / Débito",20,90);
+  doc.text(`Data escolhida: ${data}`,20,90);
+  doc.text("Forma de pagamento: Pix / Presencial / Débito",20,100);
   
   doc.save(`Comprovante_${nome}.pdf`);
 
-  alert(`Comprovante gerado!\nValor total: R$${valor}\nCupons: ${cupons}`);
+  alert(`Comprovante gerado!\nValor total: R$${valor}\nCupons: ${cupons}\nData: ${data}`);
 
   formulario.reset();
   overlay.style.display="none";
