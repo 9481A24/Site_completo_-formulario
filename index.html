@@ -1,3 +1,5 @@
+
+  
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -5,27 +7,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Faxina Limpeza Geral</title>
 
+<!-- Flatpickr -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-html,body{width:100%;font-family:Arial,sans-serif;overflow-x:hidden;}
-body{background:white;text-align:center;}
+html,body{width:100%;font-family:Arial,sans-serif;overflow-x:hidden;background:white;text-align:center;}
 
 /* NAV */
-nav{
-  position:fixed; top:0; left:0;
-  width:100%; height:6px;
-  background:#FF8C00;
-  z-index:1000;
-}
+nav{position:fixed; top:0; left:0;width:100%; height:6px;background:#FF8C00; z-index:1000;}
 
 /* LOGO */
-.logo-centro{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  width:100%;
-  margin-top:40px;
-}
+.logo-centro{display:flex;justify-content:center;align-items:center;width:100%;margin-top:40px;}
 .logo-centro img{width:500px;height:auto;display:block;}
 
 /* HERO */
@@ -34,39 +28,12 @@ nav{
 .hero p{font-size:1.1em;margin-bottom:20px;}
 
 /* BOTÕES */
-.btn{
-  display:inline-block;
-  background:#25D366;
-  color:white;
-  padding:15px 25px;
-  border-radius:8px;
-  text-decoration:none;
-  font-weight:bold;
-  margin:10px 0;
-  box-shadow:0 4px 10px rgba(0,0,0,0.2);
-  cursor:pointer;
-}
-.btn-depoimentos{
-  display:inline-block;
-  background:#FF8C00;
-  color:white;
-  padding:12px 20px;
-  border-radius:8px;
-  text-decoration:none;
-  font-weight:bold;
-  margin-top:10px;
-}
+.btn{display:inline-block;background:#25D366;color:white;padding:15px 25px;border-radius:8px;text-decoration:none;font-weight:bold;margin:10px 0;box-shadow:0 4px 10px rgba(0,0,0,0.2);cursor:pointer;}
+.btn-depoimentos{display:inline-block;background:#FF8C00;color:white;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:bold;margin-top:10px;}
 
 /* PLANOS */
-.planos{ padding:30px 15px; }
-.plano{
-  background:#f4f4f4;
-  margin:20px auto;
-  padding:20px;
-  border-radius:10px;
-  max-width:400px;
-  box-shadow:0 4px 10px rgba(0,0,0,0.1);
-}
+.planos{padding:30px 15px;}
+.plano{background:#f4f4f4;margin:20px auto;padding:20px;border-radius:10px;max-width:400px;box-shadow:0 4px 10px rgba(0,0,0,0.1);}
 .plano h2{margin-bottom:10px;}
 .preco{color:#FF8C00;font-size:1.5em;font-weight:bold;margin-bottom:15px;}
 .fotos-card{display:flex;justify-content:center;margin-top:15px;}
@@ -90,55 +57,16 @@ nav{
 .btn-condominio{display:inline-block;margin-top:15px;background:white;color:#FF8C00;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:bold;}
 
 /* POPUP FORMULÁRIO */
-#overlay{
-  display:none;
-  position:fixed; top:0; left:0;
-  width:100%; height:100%;
-  background:rgba(0,0,0,0.6);
-  z-index:999;
-}
-#meuFormulario{
-  display:none;
-  position:fixed;
-  top:50%; left:50%;
-  transform:translate(-50%,-50%);
-  background:#f2f2f2;
-  padding:30px;
-  border-radius:10px;
-  width:350px;
-  z-index:1000;
-  box-shadow:0 0 15px rgba(0,0,0,0.5);
-}
-#meuFormulario h2{margin-bottom:20px;}
-#meuFormulario input, #meuFormulario select{
-  width:100%;
-  padding:8px;
-  margin-bottom:10px;
-  box-sizing:border-box;
-}
-#meuFormulario button{
-  padding:10px 20px;
-  font-size:16px;
-  border:none;
-  border-radius:5px;
-  cursor:pointer;
-}
-#enviarBtn{ background:#00cc66; color:white; margin-bottom:10px; }
-#fecharPopup{ background:#ff4444; color:white; margin-left:10px; } 
+#overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:999;}
+#meuFormulario{display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#f2f2f2;padding:20px;border-radius:10px;width:400px;max-height:90vh;overflow-y:auto;box-shadow:0 0 15px rgba(0,0,0,0.5);z-index:1000;}
+#meuFormulario input{width:100%;padding:8px;margin-bottom:10px;box-sizing:border-box;border-radius:5px;border:1px solid #ccc;font-size:14px;}
+#meuFormulario label{display:block;margin-bottom:5px;font-weight:bold;}
+button{padding:10px;border:none;border-radius:5px;cursor:pointer;font-weight:bold;}
+#proximoBtn, #enviarBtn{background:#00cc66;color:white;}
+#voltarBtn{background:#ff4444;color:white;}
 
 /* WHATSAPP FLUTUANTE */
-.whatsapp-btn{
-  position:fixed;
-  bottom:20px; right:20px;
-  background:linear-gradient(135deg,#25D366,#128C7E);
-  color:white;
-  font-weight:bold;
-  padding:15px 20px;
-  border-radius:30px;
-  box-shadow:0 4px 12px rgba(0,0,0,0.4);
-  z-index:9999;
-  text-decoration:none;
-}
+.whatsapp-btn{position:fixed;bottom:20px;right:20px;background:linear-gradient(135deg,#25D366,#128C7E);color:white;font-weight:bold;padding:15px 20px;border-radius:30px;box-shadow:0 4px 12px rgba(0,0,0,0.4);z-index:9999;text-decoration:none;}
 
 /* RODAPÉ */
 footer{background:#f4f4f4;padding:15px;margin-top:30px;}
@@ -152,7 +80,6 @@ footer{background:#f4f4f4;padding:15px;margin-top:30px;}
 }
 </style>
 </head>
-
 <body>
 
 <nav></nav>
@@ -163,52 +90,34 @@ footer{background:#f4f4f4;padding:15px;margin-top:30px;}
 
 <div class="hero">
   <h1>🎉 1 único vencedor ganhará 6 meses de faxina grátis (1 vez por mês)</h1>
-  <p> 🕒 "Ao comprar 1 hora de faxina (R$39,90), você ganha 1 cupom para o sorteio." ✅</p>
-  <p> 🏆 Ao atingir 320 horas totais será realizado o sorteio</p>
-
-  <a class="btn" id="agendarBtn">Clique para abrir formulário</a>
-  <br>
+  <p>🕒 "Ao comprar 1 hora de faxina (R$39,90), você ganha 1 cupom para o sorteio." ✅</p>
+  <p>🏆 Ao atingir 320 horas totais será realizado o sorteio</p>
+  <a class="btn" id="agendarBtn">Quero Meus 6 Meses Grátis</a><br>
   <a href="#depoimentos" class="btn-depoimentos">Ver Depoimentos</a>
 </div>
 
-<!-- PLANOS -->
 <div class="planos">
   <div class="plano">
     <h2>Produtos Incluso</h2>
     <div class="preco">Limpeza Completa</div>
-    <div class="fotos-card">
-      <img src="https://raw.githubusercontent.com/9481A24/Site_completo_-formulario/main/5beda22e-693e-4f42-a51c-a1fb75aa1155-wm.png" alt="Plano Essencial">
-    </div>
+    <div class="fotos-card"><img src="https://raw.githubusercontent.com/9481A24/Site_completo_-formulario/main/5beda22e-693e-4f42-a51c-a1fb75aa1155-wm.png"></div>
   </div>
-
   <div class="plano">
     <h2>Produtos Qualidade</h2>
     <p>✔️ ✨ Resultado que impressiona</p>
     <p>✔️ 🎁 Ambiente renovado</p>
-    <div class="fotos-card">
-      <img src="https://raw.githubusercontent.com/9481A24/Site_completo_-formulario/main/454ce91f-05a3-498b-8b1b-9016af3887d6-wm.png" alt="Plano Premium">
-    </div>
+    <div class="fotos-card"><img src="https://raw.githubusercontent.com/9481A24/Site_completo_-formulario/main/454ce91f-05a3-498b-8b1b-9016af3887d6-wm.png"></div>
   </div>
-
   <div class="plano">
     <h2>Lavagem Estofados</h2>
-    <p>  </p>
-    <p>  </p>
-    <div class="fotos-card">
-      <img src="https://raw.githubusercontent.com/9481A24/Site_completo_-formulario/main/49d9060d-2e49-45c1-ae83-bfa2da9313c2-wm.png" alt="Lavagem Estofados">
-    </div>
+    <div class="fotos-card"><img src="https://raw.githubusercontent.com/9481A24/Site_completo_-formulario/main/49d9060d-2e49-45c1-ae83-bfa2da9313c2-wm.png"></div>
   </div>
-
   <div class="plano">
     <h2>Grande Sorteio</h2>
-    <p>  </p>
-    <div class="fotos-card">
-      <img src="https://raw.githubusercontent.com/9481A24/Site_completo_-formulario/main/44e8a543-03a8-474c-ba59-ec655b90c658-wm.png" alt="Limpeza por Hora">
-    </div>
+    <div class="fotos-card"><img src="https://raw.githubusercontent.com/9481A24/Site_completo_-formulario/main/44e8a543-03a8-474c-ba59-ec655b90c658-wm.png"></div>
   </div>
 </div>
 
-<!-- DIFERENCIAL -->
 <div class="diferencial">
   <h3>Nosso Diferencial</h3>
   <div class="itens-diferencial">
@@ -219,7 +128,6 @@ footer{background:#f4f4f4;padding:15px;margin-top:30px;}
   <div class="selo-confianca">⭐ Empresa Regularizada – CNPJ Ativo</div>
 </div>
 
-<!-- CARROSSEL DEPOIMENTOS -->
 <div class="depoimentos-carrossel" id="depoimentos">
   <h3>Depoimentos de Clientes</h3>
   <div class="carousel-container">
@@ -231,109 +139,126 @@ footer{background:#f4f4f4;padding:15px;margin-top:30px;}
   </div>
 </div>
 
-<!-- CONDOMÍNIO -->
 <div class="condominio">
   <h3>Atendimento para Condomínios</h3>
   <p>Planos especiais para moradores do mesmo condomínio.</p>
   <a href="https://wa.me/5531995439612" target="_blank" class="btn-condominio">Solicitar Proposta para Condomínio</a>
 </div>
 
-<!-- POPUP FORMULÁRIO -->
+<!-- FORMULÁRIO POPUP EM DUAS ETAPAS -->
 <div id="overlay"></div>
 <div id="meuFormulario">
   <h2>Sorteio grátis faxina</h2>
   <form id="formulario">
-    <input type="text" name="nome" placeholder="Nome" required>
-    <input type="tel" name="celular" placeholder="Celular" required>
-    <input type="text" name="pix" placeholder="Chave Pix" required>
-    
-    <!-- CAMPO DE DATA ADICIONADO -->
-    <label for="data">Escolha a data:</label>
-    <input type="date" id="data" name="data" required>
-    
-    <select name="horas" required>
-      <option value="">Selecione quantidade de horas</option>
-      <option value="1">1 hora</option>
-      <option value="2">2 horas</option>
-      <option value="3">3 horas</option>
-      <option value="4">4 horas</option>
-      <option value="5">5 horas</option>
-      <option value="6">6 horas</option>
-      <option value="7">7 horas</option>
-      <option value="8">8 horas</option>
-      <option value="9">9 horas</option>
-      <option value="10">10 horas</option>
-    </select>
-    <button type="submit" id="enviarBtn">Enviar</button>
-    <button type="button" id="fecharPopup">Fechar</button>
+    <!-- Etapa 1 -->
+    <div id="etapa1">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+
+      <label for="whatsapp">WhatsApp:</label>
+      <input type="tel" id="whatsapp" name="whatsapp" placeholder="(XX) XXXXX-XXXX" required>
+
+      <label for="endereco">Endereço:</label>
+      <input type="text" id="endereco" name="endereco" placeholder="Seu endereço" required>
+
+      <button type="button" id="proximoBtn">Próximo →</button>
+    </div>
+
+    <!-- Etapa 2 -->
+    <div id="etapa2" style="display:none;">
+      <label for="dataInput">Escolha a data:</label>
+      <input type="text" id="dataInput" name="data" placeholder="Clique para escolher" readonly required>
+
+      <label for="pacote">Pacote:</label>
+      <input type="text" id="pacote" name="pacote" value="3 horas - R$119,00 (3 cupons)" readonly style="background:#e0e0e0;">
+
+      <label for="enderecoEmpresa">Endereço da Empresa:</label>
+      <input type="text" id="enderecoEmpresa" name="enderecoEmpresa" value="CNPJ 59.711.008/0001-09 – Jeová-Jiré" readonly style="background:#e0e0e0;">
+
+      <div style="display:flex; justify-content:space-between;">
+        <button type="button" id="voltarBtn">← Voltar</button>
+        <button type="submit" id="enviarBtn">Enviar</button>
+      </div>
+    </div>
   </form>
 </div>
 
-<!-- WHATSAPP FLUTUANTE -->
-<a class="whatsapp-btn" href="https://wa.me/5531995439612" target="_blank">Falar com profissional</a>
+<a class="whatsapp-btn" href="https://wa.me/5531995439612" target="_blank">Solicitar Orçamento</a>
 
 <footer>
 CNPJ: 59.711.008/0001-09 – Jeová-Jiré
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
 // CARROSSEL
 const slideContainer = document.querySelector('.carousel-slide');
 const slides = document.querySelectorAll('.carousel-video');
 let index = 0;
-function nextSlide(){ index++; if(index >= slides.length) index=0; slideContainer.style.transform=`translateX(-${index*100}%)`; }
+function nextSlide(){ index++; if(index>=slides.length) index=0; slideContainer.style.transform=`translateX(-${index*100}%)`; }
 setInterval(nextSlide,3000);
 
-// POPUP FORMULÁRIO
+// ABRIR POPUP
 const botaoAgendar = document.getElementById("agendarBtn");
 const formularioDiv = document.getElementById("meuFormulario");
 const overlay = document.getElementById("overlay");
-const fecharBtn = document.getElementById("fecharPopup");
-
 botaoAgendar.addEventListener("click", e=>{
   e.preventDefault();
   overlay.style.display="block";
   formularioDiv.style.display="block";
 });
-fecharBtn.addEventListener("click", ()=>{ overlay.style.display="none"; formularioDiv.style.display="none"; });
-overlay.addEventListener("click", ()=>{ overlay.style.display="none"; formularioDiv.style.display="none"; });
+overlay.addEventListener("click", ()=>{ formularioDiv.style.display="none"; overlay.style.display="none"; });
 
-// ENVIO FORMULÁRIO E GERAR PDF
+// ETAPAS DO FORMULÁRIO
+const etapa1 = document.getElementById("etapa1");
+const etapa2 = document.getElementById("etapa2");
+const proximoBtn = document.getElementById("proximoBtn");
+const voltarBtn = document.getElementById("voltarBtn");
+proximoBtn.addEventListener("click", ()=>{
+  etapa1.style.display = "none";
+  etapa2.style.display = "block";
+});
+voltarBtn.addEventListener("click", ()=>{
+  etapa2.style.display = "none";
+  etapa1.style.display = "block";
+});
+
+// CALENDÁRIO DATAS VERDE/VERMELHO
+let datasOcupadas = ["2026-03-01","2026-03-03"];
+flatpickr("#dataInput", {
+  minDate: "today",
+  dateFormat: "Y-m-d",
+  disable: datasOcupadas,
+  onDayCreate: function(dObj,dStr,fp,dayElem){
+    const date = dayElem.dateObj;
+    const yyyy = date.getFullYear();
+    const mm = ('0'+(date.getMonth()+1)).slice(-2);
+    const dd = ('0'+date.getDate()).slice(-2);
+    const full = `${yyyy}-${mm}-${dd}`;
+    if(datasOcupadas.includes(full)){
+      dayElem.style.background="#ff4444"; dayElem.style.color="white";
+    } else {
+      dayElem.style.background="#00cc66"; dayElem.style.color="white";
+    }
+  }
+});
+
+// ENVIO FORMULÁRIO
 const formulario = document.getElementById("formulario");
 formulario.addEventListener("submit", function(e){
   e.preventDefault();
-  const nome = formulario.nome.value;
-  const celular = formulario.celular.value;
-  const pix = formulario.pix.value;
-  const data = formulario.data.value; // PEGANDO DATA
-  const horas = parseInt(formulario.horas.value);
-  const valor = (39.90 * horas).toFixed(2);
-  const cupons = horas;
-
-  const { jsPDF } = window.jspdf;
-  const doc = new jsPDF();
-  doc.setFontSize(14);
-  doc.text("Comprovante de Agendamento - Promoção Faxina", 20, 20);
-  doc.setFontSize(12);
-  doc.text(`Nome: ${nome}`,20,30);
-  doc.text(`Celular: ${celular}`,20,40);
-  doc.text(`Horas contratadas: ${horas}`,20,50);
-  doc.text(`Quantidade de cupons: ${cupons}`,20,60);
-  doc.text(`Valor total: R$ ${valor}`,20,70);
-  doc.text(`Chave Pix: ${pix}`,20,80);
-  doc.text(`Data escolhida: ${data}`,20,90);
-  doc.text("Forma de pagamento: Pix / Presencial / Débito",20,100);
-  
-  doc.save(`Comprovante_${nome}.pdf`);
-
-  alert(`Comprovante gerado!\nValor total: R$${valor}\nCupons: ${cupons}\nData: ${data}`);
-
-  formulario.reset();
-  overlay.style.display="none";
-  formularioDiv.style.display="none";
+  const dadosCliente = {
+    nome: document.getElementById("nome").value,
+    whatsapp: document.getElementById("whatsapp").value,
+    endereco: document.getElementById("endereco").value,
+    data: document.getElementById("dataInput").value,
+    pacote: document.getElementById("pacote").value,
+    enderecoEmpresa: document.getElementById("enderecoEmpresa").value
+  };
+  localStorage.setItem("dadosCliente", JSON.stringify(dadosCliente));
+  window.location.href = "obrigado.html";
 });
 </script>
 
 </body>
 </html>
+
